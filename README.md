@@ -9,6 +9,11 @@ Navigate to the root shell
     
     wget https://pkgs.tailscale.com/stable/tailscale_1.32.2_386.tgz
     
+    # if you get an error about certificates use
+    
+    wget https://pkgs.tailscale.com/stable/tailscale_1.32.3_386.tgz --no-check-certificate
+    
+    
 Unpack the archive
 
     tar xvf tailscale_1.32.2_386.tgz
