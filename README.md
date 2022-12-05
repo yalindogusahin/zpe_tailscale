@@ -36,9 +36,40 @@ To authenticate yourself by 3 options. (Microsoft, Google, Github)
 
 If you want to run tailscale service when the device boots up.
 
-    This will be added later
+Place this script to the directory as /home/root/tailscale.sh
 
-  
+    #!/bin/bash
+    #start tailscale
+    /home/root/tailscale_1.32.2_386/tailscaled &
+
+Also we need to place init.d script to /etc/init.d as blah
+
+    #! /bin/sh
+    # /etc/init.d/blah
+    #
+
+    # Some things that run always
+    touch /var/lock/blah
+
+    # Carry out specific functions when asked to by the system
+    case "$1" in
+      start)
+        echo "Starting script blah "
+        echo "Could do more here"
+        /home/root/tailscale_1.32.2_386/tailscaled &
+        ;;
+      stop)
+        echo "Stopping script blah"
+        echo "Could do more here"
+        ;;
+      *)
+        echo "Usage: /etc/init.d/blah {start|stop}"
+        exit 1
+        ;;
+    esac
+
+    exit 0
+
 
 
     
