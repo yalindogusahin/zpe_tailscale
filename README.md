@@ -50,17 +50,19 @@ Also we need to place init.d script to /etc/init.d as blah
 
     # Some things that run always
     touch /var/lock/blah
+    /home/root/tailscale_1.32.2_386/tailscaled &
 
     # Carry out specific functions when asked to by the system
     case "$1" in
       start)
         echo "Starting script blah "
         echo "Could do more here"
-        /home/root/tailscale_1.32.2_386/tailscaled &
+        /home/root/tailscale_1.32.2_386/tailscale up
         ;;
       stop)
         echo "Stopping script blah"
         echo "Could do more here"
+        /home/root/tailscale_1.32.2_386/tailscale stop
         ;;
       *)
         echo "Usage: /etc/init.d/blah {start|stop}"
