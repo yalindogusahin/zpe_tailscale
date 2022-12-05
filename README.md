@@ -70,8 +70,15 @@ Also we need to place init.d script to /etc/init.d as blah
 
     exit 0
 
+Once you've saved your file into the correct location make sure that it's executable by running
 
+    chmod 755 /etc/init.d/blah
 
+Then you need to add the appropriate symbolic links to cause the script to be executed when the system goes down, or comes up.
+
+The simplest way of doing this is to use the Debian-specific command update-rc.d
+    
+    update-rc.d blah defaults
     
     
 
